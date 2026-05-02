@@ -2,6 +2,17 @@
 
 ## Instalación
 
+## Clonar el repositorio:
+```bash
+git clone https://github.com/LAraujoA/Pokedex.git
+```
+
+## Ingresar a la carpeta del repositorio
+```bash
+cd Pokedex
+```
+
+## Instalar 
 ```bash
 npm install
 ```
@@ -21,6 +32,9 @@ npm run dev
 ```
 
 ## Credenciales de prueba (PayPal Sandbox)
-
+```bash
 Email: sb-ib0ei50925699@personal.example.com    
-Password: otI7<ob2                                 
+Password: otI7<ob2                            
+```
+
+

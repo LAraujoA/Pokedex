@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Get-ChildItem -Path \"d:\\\\UNIVO 2026\\\\POKEDEX CW\\\\Pokedex\" -Recurse -File)",
-      "Bash(Select-Object FullName)",
-      "Bash(npm run *)"
-    ]
-  }
-}
