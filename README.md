@@ -1,1 +1,0 @@
-# API Pokedex con Vite + React

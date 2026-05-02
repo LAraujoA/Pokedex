@@ -19,7 +19,7 @@ const TYPE_COLORS = {
   steel: "#78909c",
 };
 
-export function PokemonCard({ pokemon, onClick }) {
+export function PokemonCard({ pokemon, price, isPurchased, onClick, onBuy }) {
   const types = pokemon.types.map((t) => t.type.name);
   const mainColor = TYPE_COLORS[types[0]] || "#bcaaa4";
   const sprite =
@@ -28,10 +28,11 @@ export function PokemonCard({ pokemon, onClick }) {
 
   return (
     <div
-      className="pokemon-card"
-      style={{ "--card-color": mainColor, cursor: "pointer" }}
+      className={`pokemon-card${isPurchased ? " purchased" : ""}`}
+      style={{ "--card-color": mainColor }}
       onClick={onClick}
     >
+      {isPurchased && <div className="owned-badge">✓ Adquirida</div>}
       <span className="pokemon-id">#{String(pokemon.id).padStart(3, "0")}</span>
       <img src={sprite} alt={pokemon.name} />
       <h2>{pokemon.name}</h2>
@@ -53,6 +54,24 @@ export function PokemonCard({ pokemon, onClick }) {
         <span>ATK {pokemon.stats[1].base_stat}</span>
         <span>DEF {pokemon.stats[2].base_stat}</span>
       </div>
+
+      <div className="card-price">
+        <span className="price-tag">${price} USD</span>
+      </div>
+
+      {isPurchased ? (
+        <div className="purchased-label">✅ En tu colección</div>
+      ) : (
+        <button
+          className="buy-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            onBuy(pokemon);
+          }}
+        >
+           Comprar
+        </button>
+      )}
     </div>
   );
 }
